@@ -24,8 +24,8 @@ class RingBuffer {
 
             // If the next write position hits the current read position, the belt is full!
             // We use '% Size' (modulo) to wrap the index back to 0 when it reaches the end.
-            if((nextTail % Size) == (head.load(std::memory_order_acquire))) {
-                return false; // Queue is completely full
+            if (nextTail - head.load(std::memory_order_acquire) > Size) {
+                return false; // truly full — Size items already in buffer
             }
 
             //Drop the Item into conveyer belt

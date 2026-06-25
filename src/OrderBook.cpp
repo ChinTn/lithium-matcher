@@ -1,9 +1,10 @@
 #include "OrderBook.h"
 #include <algorithm>
+#include <iostream>
 
 // 1. Constructor: Setup the pool and trackers
-// We initialise the memory pool with 1,000,000 slots right off the bat.
-OrderBook::OrderBook() : orderPool(1000000) {
+// We initialise the memory pool with 5,000,000 slots right off the bat.
+OrderBook::OrderBook() : orderPool(5000000) {
     // we start the best bid at 0 (lowest possible)
     // we start ask at MAX_PRICE (highest possible)
 
@@ -21,6 +22,15 @@ void OrderBook::processOrder(uint64_t orderId, Side side, uint32_t price, uint32
 
     //Grab a blank order from the memory pool and fill it
     Order* incoming = orderPool.allocate();
+
+    // --- SAFETY CHECK IF WE RUN OUT OF MEMORY --- //
+    if (incoming == nullptr) {
+        // We are completely out of memory!
+        // Drop the order safely instead of crashing the whole engine.
+        std::cout << "WARNING: Memory Pool Full! Dropped Order ID: " << orderId << "\n";
+        return; 
+    }
+    
     incoming->orderId = orderId;
     incoming->side = side;
     incoming->price = price;
