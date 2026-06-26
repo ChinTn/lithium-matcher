@@ -29,19 +29,12 @@ class MemoryPool {
 
         // Grab a blank object from the pool. (Notice NO 'new' keyword!)
         T* allocate() {
-            // Defense Mechanism: What if the market crashes and our pool gets completely full?
-
+            // Defense Mechanism: If the pool is empty, we must NEVER resize!
+            // Resizing a vector invalidates all existing pointers to its elements.
             if(freeList.empty()) {
-                size_t oldSize = pool.size();
-
-               // We tell the OS: "Emergency! Double the size of our notebook!"
-               pool.resize(oldSize * 2);
-
-               //Add all the newly created page numbers to the free list
-               for(size_t i = pool.size(); i > oldSize; --i){
-                    freeList.push_back(i - 1);
-               }
-
+                // Return a nullptr so the caller (OrderBook) knows we are out of memory.
+                // This will trigger the safety check we built in OrderBook::processOrder!
+                return nullptr;
             }
 
             // Take the top page number off the free list stack
@@ -50,7 +43,6 @@ class MemoryPool {
 
             // Return a pointer to that specific blank object in the array
             return &pool[index];
-
         }
 
         //When an Order matches , we recycle it instead of using 'delete'
