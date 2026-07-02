@@ -1,3 +1,13 @@
+/*
+ * Copyright (c) 2026 Chintan. All rights reserved.
+ * 
+ * This software is the confidential and proprietary information of Chintan.
+ * You shall not disclose such Confidential Information and shall use it only in 
+ * accordance with the terms of the license agreement you entered into with Chintan.
+ * 
+ * Unauthorized copying of this file, via any medium, is strictly prohibited.
+ */
+
 #pragma once
 // When you build a C++ project, files often reference each other. This line tells the compiler: "If you have already read this file, do not read it again." It prevents annoying "Duplicate Definition" errors.
 #include <cstdint>
