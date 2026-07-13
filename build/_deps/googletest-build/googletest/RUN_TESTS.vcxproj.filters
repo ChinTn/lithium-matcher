@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\CMakeFiles\ad097d5c6102ea2ad655c1b2cf478561\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{576D5739-14BE-35B5-9EB9-40CC5BDDFA78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
