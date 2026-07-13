@@ -1,0 +1,3 @@
+D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
+D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/ALL_BUILD.dir
+D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/ZERO_CHECK.dir

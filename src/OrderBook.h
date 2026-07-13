@@ -47,6 +47,31 @@ class OrderBook {
         //constructor
         OrderBook();
 
+        // Overloaded constructor for fast testing
+        OrderBook(size_t poolSize);
+
+        // === Test Inspection Methods ===
+        uint32_t getBestBid() const { return currentBestBid; }
+        uint32_t getBestAsk() const { return currentBestAsk; }
+
+        const Order* getFirstOrderAtPrice(Side side, uint32_t price) const {
+            if(price >= MAX_PRICE) return nullptr;
+            if(side == Side::BUY) return bids[price].firstInLine;
+            return asks[price].firstInLine;
+        }
+
+        uint32_t getTotalQuantityAtPrice(Side side, uint32_t price) const {
+            if(price >= MAX_PRICE) return 0;
+            const PriceLevel& level = (side == Side::BUY) ? bids[price] : asks[price];
+            uint32_t total = 0;
+            const Order* current = level.firstInLine;
+            while(current != nullptr) {
+                total += current->quantity;
+                current = current->next;
+            }
+            return total;
+        }
+
         //The main entry point for the outside world
         // The Mailroom thread calls this function to give us a new order.
         void processOrder(uint64_t orderId, Side side, uint32_t price, uint32_t quantity);

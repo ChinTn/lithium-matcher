@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/73bde4056e82681f34d3a3be3ba310fd/googletest-populate.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/b7c89e05e07601a4a6b117cf022525bd/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-build.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-download.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-install.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-test.rule"
+		},
+		{
+			"file" : "D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/1d9899c0a1f4b779eddafe4178914615/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

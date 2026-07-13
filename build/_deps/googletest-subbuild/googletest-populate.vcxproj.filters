@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\1d9899c0a1f4b779eddafe4178914615\googletest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\b7c89e05e07601a4a6b117cf022525bd\googletest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\73bde4056e82681f34d3a3be3ba310fd\googletest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-subbuild\CMakeFiles\googletest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{07A7260B-ACD7-32A1-AF63-8A6E1F44E27E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -23,12 +23,20 @@ OrderBook::OrderBook() : orderPool(5000000) {
     //putting them on their worst possible state
 }
 
+// Overloaded Constructor for Testing
+OrderBook::OrderBook(size_t poolSize) : orderPool(poolSize) {
+    currentBestBid = 0;
+    currentBestAsk = MAX_PRICE;
+}
+
 // 2. Entry Point
 void OrderBook::processOrder(uint64_t orderId, Side side, uint32_t price, uint32_t quantity) {
     
     //Safety check
     //Dont allow prices higher than our array size
     if(price >= MAX_PRICE) return;
+    // Safety check: Ignore orders with 0 quantity
+    if(quantity == 0) return;
 
     //Grab a blank order from the memory pool and fill it
     Order* incoming = orderPool.allocate();
@@ -83,6 +91,7 @@ void OrderBook::matchOrder(Order* incoming) {
             PriceLevel& bestLevel = asks[currentBestAsk];
             //here we must have to use & for referencing else later when we remove it wont get removed from the asks list
             Order* seller = bestLevel.firstInLine;
+            if(seller == nullptr) break;
 
             // Find how many shares we can actually trade
             uint32_t tradeQty = std::min(incoming->quantity , seller->quantity);
@@ -112,7 +121,11 @@ void OrderBook::matchOrder(Order* incoming) {
         while (incoming -> quantity > 0 && incoming -> price <= currentBestBid) {
             PriceLevel& bestLevel = bids[currentBestBid];
             Order* buyer = bestLevel.firstInLine;
-
+            
+            //Safety Check 
+            //If buyer is nullptr -> someone wants to buy in 0$
+            if(buyer == nullptr) break;
+            
             uint32_t tradeQty = std::min(incoming -> quantity , buyer -> quantity);
 
             incoming -> quantity -= tradeQty;

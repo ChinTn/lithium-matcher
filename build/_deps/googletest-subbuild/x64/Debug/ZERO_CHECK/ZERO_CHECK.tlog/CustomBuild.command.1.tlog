@@ -1,0 +1,10 @@
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\73BDE4056E82681F34D3A3BE3BA310FD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild -BD:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

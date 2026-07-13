@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,150 @@
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp/googletest-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-DOWNLOAD.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp/googletest-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-UPDATE.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-src
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp/googletest-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-CONFIGURE.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-BUILD.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-INSTALL.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\1D9899C0A1F4B779EDDAFE4178914615\GOOGLETEST-POPULATE-TEST.RULE
+setlocal
+cd D:\STUDY\Projects\lithium-matcher\build\_deps\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\B7C89E05E07601A4A6B117CF022525BD\GOOGLETEST-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/Debug/googletest-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/Debug/googletest-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\73BDE4056E82681F34D3A3BE3BA310FD\GOOGLETEST-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\STUDY\PROJECTS\LITHIUM-MATCHER\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild -BD:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild --check-stamp-file D:/STUDY/Projects/lithium-matcher/build/_deps/googletest-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
