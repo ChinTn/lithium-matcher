@@ -12,7 +12,7 @@
 #include "Types.h"
 #include "MemoryPool.h"
 #include <array>
-
+#include <unordered_map>
 // We define a maximum price to size our arrays. 
 // 100,000 cents = $1,000.00
 constexpr uint32_t MAX_PRICE = 100000;
@@ -33,6 +33,12 @@ class OrderBook {
         // These hold the exact array index of the current best prices.
         uint32_t currentBestBid;
         uint32_t currentBestAsk;
+
+
+        // 4. The Lookup Table (The Phone Book)
+        // Maps OrderID -> pointer to the resting Order.
+        // This lets us find any order in O(1) when someone wants to cancel it.
+        std::unordered_map<uint64_t, Order*> orderMap;
 
         // --- Helper Functions ---
         // These handle the annoying pointer logic of adding/removing people from the line
@@ -75,4 +81,11 @@ class OrderBook {
         //The main entry point for the outside world
         // The Mailroom thread calls this function to give us a new order.
         void processOrder(uint64_t orderId, Side side, uint32_t price, uint32_t quantity);
+
+        // Cancel the order
+        bool cancelOrder(uint64_t orderId);
+
+        //returns number of the orders in the book
+        size_t getRestingOrderCount() const { return orderMap.size(); }
+
 };

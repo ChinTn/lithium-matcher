@@ -62,6 +62,9 @@ void OrderBook::processOrder(uint64_t orderId, Side side, uint32_t price, uint32
     //If after doing this matching and trading if we still got quantity
     //put them in List again to wait
     if(incoming -> quantity > 0){
+        //Register order into the map
+        orderMap[incoming -> orderId] = incoming;
+
         if(side == Side::BUY) {
             addOrderToLevel(bids[price] , incoming);
             //update the tracker if this is a new highest buyer
@@ -102,6 +105,7 @@ void OrderBook::matchOrder(Order* incoming) {
             // If seller is Out of shares
             if (seller -> quantity == 0){
                 removeOrderFromLevel(bestLevel , seller);
+                orderMap.erase(seller->orderId);
                 //we used & up there to do this
                 orderPool.deallocate(seller); //Recycle the Order
 
@@ -134,6 +138,7 @@ void OrderBook::matchOrder(Order* incoming) {
             //If buyer is out of Shares and we still want to share
             if(buyer -> quantity == 0){
                 removeOrderFromLevel(bestLevel, buyer);
+                orderMap.erase(buyer->orderId);
                 orderPool.deallocate(buyer); // Recycle the Order
 
                 //If that price of bids is now empty 
@@ -179,4 +184,47 @@ void OrderBook::removeOrderFromLevel(PriceLevel& level, Order* order) {
     } else {
         level.lastInLine = order -> prev;
     }
+}
+
+// 6. Order cancellation
+// Find the order by id and the remove it from the queue
+bool OrderBook::cancelOrder(uint64_t orderId) {
+    auto it = orderMap.find(orderId);
+
+    if(it == orderMap.end())return false;
+
+    Order* order = it->second;
+
+    if(order -> side == Side::BUY) {
+        PriceLevel& level = bids[order->price];
+        removeOrderFromLevel(level , order);
+
+        //if the pricelevel is completely empty then we will update the tracker
+        if(level.firstInLine == nullptr && order->price == currentBestBid){
+            if(currentBestBid > 0){
+                currentBestBid--;
+                while (currentBestBid > 0 && bids[currentBestBid].firstInLine == nullptr) {
+                    currentBestBid--;
+                }
+            }
+        }
+    }
+    else {
+        PriceLevel& level = asks[order->price];
+        removeOrderFromLevel(level , order);
+
+        //update the tracker
+        if(level.firstInLine == nullptr && order->price == currentBestAsk){
+            currentBestAsk++;
+            while (currentBestAsk < MAX_PRICE && asks[currentBestAsk].firstInLine == nullptr) {
+                currentBestAsk++;
+            }
+        }
+    }
+
+    //remove order from the lookup table and recycle the memory
+    orderMap.erase(orderId);
+    orderPool.deallocate(order);
+
+    return true;
 }

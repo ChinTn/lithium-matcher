@@ -18,6 +18,12 @@ enum class Side {
     SELL
 };
 
+// Used to differ between placing a new order and cancelling an existing one
+enum class ActionType {
+    NEW,
+    CANCEL
+};
+
 // The core data structure representing a single trade request.
 // Designed to be as small as possible to fit neatly in CPU cache.
 struct Order {

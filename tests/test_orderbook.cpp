@@ -140,3 +140,102 @@ TEST_F(OrderBookTest, ZeroQuantityRejection) {
     // The best bid should still be 0 (untouched).
     EXPECT_EQ(book->getBestBid(), 0);
 }
+
+// ============================================================
+// TEST 13: Simple Cancel
+// ============================================================
+// Place an order, cancel it, verify the book is empty.
+TEST_F(OrderBookTest, SimpleCancelOrder) {
+    book->processOrder(1, Side::BUY, 15000, 100);
+    
+    // Order should be resting
+    EXPECT_EQ(book->getTotalQuantityAtPrice(Side::BUY, 15000), 100);
+    EXPECT_EQ(book->getRestingOrderCount(), 1);
+    
+    // Cancel it
+    bool result = book->cancelOrder(1);
+    
+    // Should succeed and book should be empty
+    EXPECT_TRUE(result);
+    EXPECT_EQ(book->getTotalQuantityAtPrice(Side::BUY, 15000), 0);
+    EXPECT_EQ(book->getRestingOrderCount(), 0);
+}
+
+// ============================================================
+// TEST 14: Cancel Non-Existent Order
+// ============================================================
+// Try to cancel an order that was never placed. Should return false.
+TEST_F(OrderBookTest, CancelNonExistentOrder) {
+    bool result = book->cancelOrder(999);
+    EXPECT_FALSE(result);
+}
+
+// ============================================================
+// TEST 15: Cancel Middle of Queue (FIFO Integrity)
+// ============================================================
+// Three orders at the same price. Cancel the MIDDLE one.
+// The first and last should still be linked correctly.
+TEST_F(OrderBookTest, CancelMiddleOfQueue) {
+    book->processOrder(1, Side::SELL, 15000, 100);  // Alice
+    book->processOrder(2, Side::SELL, 15000, 200);  // Bob
+    book->processOrder(3, Side::SELL, 15000, 300);  // Charlie
+    
+    // Cancel Bob (the middle person)
+    bool result = book->cancelOrder(2);
+    EXPECT_TRUE(result);
+    
+    // Total should be 100 + 300 = 400 (Bob's 200 is gone)
+    EXPECT_EQ(book->getTotalQuantityAtPrice(Side::SELL, 15000), 400);
+    
+    // First in line should still be Alice
+    const Order* front = book->getFirstOrderAtPrice(Side::SELL, 15000);
+    ASSERT_NE(front, nullptr);
+    EXPECT_EQ(front->orderId, 1);
+    
+    // Alice's next should be Charlie (Bob is gone)
+    ASSERT_NE(front->next, nullptr);
+    EXPECT_EQ(front->next->orderId, 3);
+}
+
+// ============================================================
+// TEST 16: Cancel Updates Best Bid Tracker
+// ============================================================
+// Place bids at $150 and $145. Cancel the $150 bid.
+// Best bid should drop to $145.
+TEST_F(OrderBookTest, CancelUpdatesBestBid) {
+    book->processOrder(1, Side::BUY, 14500, 100);  // $145
+    book->processOrder(2, Side::BUY, 15000, 100);  // $150
+    
+    EXPECT_EQ(book->getBestBid(), 15000);
+    
+    // Cancel the $150 bid
+    book->cancelOrder(2);
+    
+    // Best bid should fall back to $145
+    EXPECT_EQ(book->getBestBid(), 14500);
+}
+
+// ============================================================
+// TEST 17: Cancel Then Match
+// ============================================================
+// Place two sellers. Cancel the first one. A buyer should match
+// with the second seller, not crash on the cancelled one.
+TEST_F(OrderBookTest, CancelThenMatch) {
+    book->processOrder(1, Side::SELL, 15000, 100);  // Alice
+    book->processOrder(2, Side::SELL, 15000, 200);  // Bob
+    
+    // Cancel Alice
+    book->cancelOrder(1);
+    
+    // A buyer comes in wanting 150 shares
+    book->processOrder(3, Side::BUY, 15000, 150);
+    
+    // Bob had 200, buyer took 150, so Bob should have 50 left
+    EXPECT_EQ(book->getTotalQuantityAtPrice(Side::SELL, 15000), 50);
+    
+    // Front of line should be Bob with 50
+    const Order* front = book->getFirstOrderAtPrice(Side::SELL, 15000);
+    ASSERT_NE(front, nullptr);
+    EXPECT_EQ(front->orderId, 2);
+    EXPECT_EQ(front->quantity, 50);
+}
